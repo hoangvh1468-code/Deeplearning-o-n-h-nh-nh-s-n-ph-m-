@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Kết quả nhận diện</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .container { max-width: 700px; margin: auto; }
+      .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+      h1 { color: #333; }
+      .result { margin-top: 20px; }
+      .result p { font-size: 1.1rem; }
+      img { max-width: 100%; border-radius: 8px; margin-top: 20px; }
+      a { display: inline-block; margin-top: 18px; color: #1976d2; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Kết quả nhận diện</h1>
+        <div class="result">
+          <p><strong>Sản phẩm:</strong> {{ result['product'] }}</p>
+          <p><strong>Độ tin cậy:</strong> {{ result['confidence'] }}</p>
+          {% if image_url %}
+            <img src="{{ image_url }}" alt="Uploaded image">
+          {% endif %}
+        </div>
+        <a href="{{ url_for('index') }}">Tải lại trang và chọn ảnh khác</a>
+      </div>
+    </div>
+  </body>
+</html>
