@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Ứng dụng nhận diện sản phẩm</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .container { max-width: 600px; margin: auto; }
+      h1 { color: #333; }
+      .card { padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+      .error { color: #b00020; margin-top: 10px; }
+      input[type=file] { display: block; margin-top: 12px; }
+      button { margin-top: 15px; padding: 10px 18px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer; }
+      button:hover { background: #115293; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Nhận diện sản phẩm</h1>
+        <p>Upload một ảnh để hệ thống nhận diện sản phẩm sử dụng model SVM.</p>
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" name="image" accept="image/*" required>
+          <button type="submit">Upload và nhận diện</button>
+        </form>
+        {% if error %}
+          <div class="error">{{ error }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
